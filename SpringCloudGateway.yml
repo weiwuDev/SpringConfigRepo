@@ -16,13 +16,6 @@ spring:
       default-filters:
          - name: CustomFilter
       routes:
-        - id: ServiceTestOne
-          uri: http://localhost:8085
-          predicates:
-            - Path=/ServiceTestOne/**
-          filters:
-            - StripPrefix=1
-           # - SaveSession
         - id: AuthService
           uri: http://localhost:8091
           predicates:
