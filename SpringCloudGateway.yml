@@ -1,0 +1,49 @@
+spring:
+  session:
+    store-type: redis
+
+
+  redis:
+    host: AQCAANg2eeqbwmi3tQmaqTTHBJuzKJhrOLeVieMgdWtno8cfC9s380tyzmXFN/L4QD89lc79wI6ifr3ccQOICnOow1W6JDGHBUooG2cXWuCa/gPGa9QBXaOBiqbn32blHkS9iocvyWFpcKI4Lca1bUbSC/n1Bz80OseAs+GJPiysLvDuj3g9ZMODuK45mOX7zYmhLNMOhvGnSoBG82i5BxiLFxMwYunvmnHr9P+e5VACa5VA3YvVzY9BNZ6ebB3ilnhe6GJQxW8R44qDHGbCbKcqr6eOkFO4Xqwa6tuKYEgtGyfZx+ORzekDhLFH1Ubh14nZBrAsMdzrzRjrBY6k9Ybb0tI+ua7QZWkH2vIT2DXI02wgLZO8kbffg5PZ68IxIF6F3Ql9f1Lobf6BxlDLHZJBQoSxYiXQfOK0/3YM3JgwGLW4PUaRAnF8D4w6pUHJ76U=
+    port: 6379
+    password: AQAz82qbC1B4s9SZ9aUt7naQJWxOKjocPbQergX+49V3hUSYty0pC3PEYs/87RzYIK7vhoyByi9fPrngo8RnnJ5tfB7V5mQMNKzRiyJmSe3jhl4P0nT0whdHOMJjgiYsEzX9Uz/X2rlkFcRg9Kc281dIcF0dCSuMbPYW0r6LO+jMLxz/QmnYkiO5xaC0gC2ky/T6ApnyFhLgm2DXyDRHpZe94CbZYi4eyRUgtjVu/x3K06Ys3ge9UAdWhf6ZfDtCdutifz7PbUPHbSdoKckk/W3MyG7prK9312SRgtgb9cXX3rqHfe8CpaAM3XJqlBQIU88uBAki8LPcjz3cHWZMAVExfr2wzC6udCHShUBNoKqRq940O2Y4AmjMvLw2xdutsHI=
+
+
+  application:
+    name: SpringCloudGateway
+  cloud:
+    gateway:
+      default-filters:
+         - name: CustomFilter
+      routes:
+        - id: ServiceTestOne
+          uri: http://localhost:8085
+          predicates:
+            - Path=/ServiceTestOne/**
+          filters:
+            - StripPrefix=1
+           # - SaveSession
+        - id: AuthService
+          uri: http://localhost:8091
+          predicates:
+            - Path=/AuthService/**
+          filters:
+            - StripPrefix=1
+           # - SaveSession
+        - id: RegistrationService
+          uri: http://localhost:8093
+          predicates:
+            - Path=/RegistrationService/**
+          filters:
+            - StripPrefix=1
+            # - SaveSession
+
+
+
+server:
+  servlet:
+    session:
+      cookie:
+        secure: true
+        http-only: true
+
