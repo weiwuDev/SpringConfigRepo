@@ -16,14 +16,14 @@ spring:
          - name: CustomFilter
       routes:
         - id: AuthService
-          uri: http://localhost:8091
+          uri: lb://AuthService
           predicates:
             - Path=/AuthService/**
           filters:
             - StripPrefix=1
            # - SaveSession
         - id: RegistrationService
-          uri: http://localhost:8093
+          uri: lb://RegistrationService
           predicates:
             - Path=/RegistrationService/**
           filters:

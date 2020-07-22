@@ -26,4 +26,4 @@ eureka:
 
 
 registration_service:
-  authService_uri: ${authService_uri:http://localhost:8091}
+  authService_uri: "http://AuthService/register"
