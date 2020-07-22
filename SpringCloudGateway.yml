@@ -12,6 +12,14 @@ spring:
 
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - POST
+              - GET
+              - PUT
       default-filters:
          - name: CustomFilter
       routes:
