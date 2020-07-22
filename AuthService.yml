@@ -1,0 +1,34 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: AuthService
+
+  session:
+    store-type: redis
+    timeout: 5m
+    redis:
+      save-mode: always
+      flush-mode: immediate
+
+  redis:
+    host: '{cipher}AQCAANg2eeqbwmi3tQmaqTTHBJuzKJhrOLeVieMgdWtno8cfC9s380tyzmXFN/L4QD89lc79wI6ifr3ccQOICnOow1W6JDGHBUooG2cXWuCa/gPGa9QBXaOBiqbn32blHkS9iocvyWFpcKI4Lca1bUbSC/n1Bz80OseAs+GJPiysLvDuj3g9ZMODuK45mOX7zYmhLNMOhvGnSoBG82i5BxiLFxMwYunvmnHr9P+e5VACa5VA3YvVzY9BNZ6ebB3ilnhe6GJQxW8R44qDHGbCbKcqr6eOkFO4Xqwa6tuKYEgtGyfZx+ORzekDhLFH1Ubh14nZBrAsMdzrzRjrBY6k9Ybb0tI+ua7QZWkH2vIT2DXI02wgLZO8kbffg5PZ68IxIF6F3Ql9f1Lobf6BxlDLHZJBQoSxYiXQfOK0/3YM3JgwGLW4PUaRAnF8D4w6pUHJ76U='
+    port: 6379
+    password: '{cipher}AQAz82qbC1B4s9SZ9aUt7naQJWxOKjocPbQergX+49V3hUSYty0pC3PEYs/87RzYIK7vhoyByi9fPrngo8RnnJ5tfB7V5mQMNKzRiyJmSe3jhl4P0nT0whdHOMJjgiYsEzX9Uz/X2rlkFcRg9Kc281dIcF0dCSuMbPYW0r6LO+jMLxz/QmnYkiO5xaC0gC2ky/T6ApnyFhLgm2DXyDRHpZe94CbZYi4eyRUgtjVu/x3K06Ys3ge9UAdWhf6ZfDtCdutifz7PbUPHbSdoKckk/W3MyG7prK9312SRgtgb9cXX3rqHfe8CpaAM3XJqlBQIU88uBAki8LPcjz3cHWZMAVExfr2wzC6udCHShUBNoKqRq940O2Y4AmjMvLw2xdutsHI='
+
+  data:
+    mongodb:
+      uri: '{cipher}AQCrHvDQu7fnttVVof3jibUcpCmJmrrUkku2gEDWNbD2hqn09W5b9VAE6EY0qrddFOYuKG6cX3+3w106T+vdcIcPWWsZMDoYaeXW7530icMNv9X+8KXj2lvZBCbDCehq+KU5nC4RXFI5vxA3IvYh6JbvePAdAuEZ5SNRXizJpJLxXlZqB5cVI/Zvves09epVIfVDZZrqx81/UbH/gvbgRbGQvMqMYv/b/nkP7zbjWE9WBFJYe+zv2UZgVZp4N8ouAAnCGHLuZO+sNWngqMli/DZs/Gxm4Y7JqYMMqR6v9MFG2kj5ubh9WUxagOxt63ktMsToBJy89BERzgOkymQ/yySXo6tsn0SuSMy3+fElptoakbbgQTXk5HbSO8juyjFixXTKNY7KQ6IjV6Mbxal2YL0aewcyVwoybKIOjt15ARfXcFAYBrJUyr/Z22cRnPTUbESaomDW+zYOjB2KKo8Xvmc0cZULwikIUBSUe5PNJFyvPcWGED/TO+soQR7IDmCbMn4='
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone:  ${eureka_url:http://localhost:8761/eureka/}
+
+  instance:
+    hostname: ${HOSTNAME:${spring.application.name}}
+    preferIpAddress: false
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}:${server.port}
