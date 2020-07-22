@@ -2,15 +2,14 @@ spring:
   session:
     store-type: redis
 
-
   redis:
     host: '{cipher}AQCAANg2eeqbwmi3tQmaqTTHBJuzKJhrOLeVieMgdWtno8cfC9s380tyzmXFN/L4QD89lc79wI6ifr3ccQOICnOow1W6JDGHBUooG2cXWuCa/gPGa9QBXaOBiqbn32blHkS9iocvyWFpcKI4Lca1bUbSC/n1Bz80OseAs+GJPiysLvDuj3g9ZMODuK45mOX7zYmhLNMOhvGnSoBG82i5BxiLFxMwYunvmnHr9P+e5VACa5VA3YvVzY9BNZ6ebB3ilnhe6GJQxW8R44qDHGbCbKcqr6eOkFO4Xqwa6tuKYEgtGyfZx+ORzekDhLFH1Ubh14nZBrAsMdzrzRjrBY6k9Ybb0tI+ua7QZWkH2vIT2DXI02wgLZO8kbffg5PZ68IxIF6F3Ql9f1Lobf6BxlDLHZJBQoSxYiXQfOK0/3YM3JgwGLW4PUaRAnF8D4w6pUHJ76U='
     port: 6379
     password: '{cipher}AQAz82qbC1B4s9SZ9aUt7naQJWxOKjocPbQergX+49V3hUSYty0pC3PEYs/87RzYIK7vhoyByi9fPrngo8RnnJ5tfB7V5mQMNKzRiyJmSe3jhl4P0nT0whdHOMJjgiYsEzX9Uz/X2rlkFcRg9Kc281dIcF0dCSuMbPYW0r6LO+jMLxz/QmnYkiO5xaC0gC2ky/T6ApnyFhLgm2DXyDRHpZe94CbZYi4eyRUgtjVu/x3K06Ys3ge9UAdWhf6ZfDtCdutifz7PbUPHbSdoKckk/W3MyG7prK9312SRgtgb9cXX3rqHfe8CpaAM3XJqlBQIU88uBAki8LPcjz3cHWZMAVExfr2wzC6udCHShUBNoKqRq940O2Y4AmjMvLw2xdutsHI='
 
-
   application:
     name: SpringCloudGateway
+
   cloud:
     gateway:
       default-filters:
@@ -31,12 +30,30 @@ spring:
             - StripPrefix=1
             # - SaveSession
 
-
-
 server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-type: pkcs12
+    key-alias: '{cipher}AQAdTYi/ynU1A/AIurqx0CPch7jINnMGOzDCG6av0t02AkAwhth7lbAau9NqQtu1IGTf2ri8XYLdDiTbGUfw88xbBDX9G6NkGvZst9rap5EAx+cNUdPyEmk3w1VlboH791A++SyzNuclVxqm+KbcIdOtGkr6JNhsLhxbAz5Lb52uqbl12Djv1HpF1RO5pOCHoNGF+7SFybFZ0IsVhbfBVAjWyDVGV+TwtufjytnU/TSg9Vr3Brs7IEGl7KO5qsW5zSuufJZBsBlmF9fTo5kuoi+Or27FmdwbzPYYIdtpL+oOWD0IbaeQGyXBoFHZrEa7+HjnW+xRYSTC96yfCWMhk4LXsgaFG9cynpdJEZ/WLcxMoHVbJUEFTtkUHnLC/FY3SAg='
+    key-store-password: '{cipher}AQClvvPTqLNK5xI7xDwyb3iTl09BFbMSVlN+2kdG4LfGCtWpgG1vZYPpj9P3j2SWz0gerrNSNrdo875bXQbtGNp4ktrhXthJvnPhf/1j2ZdM033/1TG96iGjlvo2Za4YhmHivMP300wXDlQjYV4azPvHGGOiyXB/+SS92Qy/fcHVUbg8s2tjrwf0gl2W6Azqq0ISOmqWwQ8BS7+SIYp46Rl4tV3ohWJ0nez/lt6cDEXDH/JYHCwzhP4aTDaCwiyVMkH79qS/hM9itv+bVl2/oW3qXvACgMUrt1oTYKyB24FiT0nvanmf3kHtTN4/afzqhSXgK1PuYY46aJADoLwiL/UPhLMbDuySsx+ImlD32K3PMd2YVDW87/pkxm1VvBEI41c='
+
   servlet:
     session:
       cookie:
         secure: true
         http-only: true
 
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone:  "http://eureka:8761/eureka, http://eureka2:8762/eureka"
+
+  instance:
+    hostname: ${HOSTNAME:${spring.application.name}}
+    preferIpAddress: false
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}:${server.port}
