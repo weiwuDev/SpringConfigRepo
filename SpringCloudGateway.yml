@@ -29,7 +29,13 @@ spring:
             - Path=/RegistrationService/**
           filters:
             - StripPrefix=1
-            # - SaveSession
+
+        - id: UserService
+          uri: lb://UserService
+          predicates:
+            - Path=/UserService/**
+          filters:
+            - StripPrefix=1
 
 server:
   port: 8443
