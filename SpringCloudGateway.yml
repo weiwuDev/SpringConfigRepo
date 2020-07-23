@@ -13,7 +13,8 @@ spring:
   cloud:
     gateway:
       default-filters:
-         - name: CustomFilter
+        - name: CustomFilter
+        - name: CustomFilterTwo
       routes:
         - id: AuthService
           uri: lb://AuthService
