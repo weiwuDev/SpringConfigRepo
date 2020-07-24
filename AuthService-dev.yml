@@ -43,3 +43,8 @@ eureka:
     hostname: ${HOSTNAME:${spring.application.name}}
     preferIpAddress: false
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}:${server.port}
+
+
+check:
+  response:
+    value: "testing if this works"
