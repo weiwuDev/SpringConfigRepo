@@ -24,6 +24,11 @@ spring:
     password: '{cipher}AQAmHPW8tDqwnRIouvd/56HA7q0fHDveyqpjHZFGsyhHQWrnq1OJgHlisOFCH3va14yiFpRkHltIFjkx91/EHbBmViFYSv5p/8IdpgGgUiXzHo/Ck9or8mpd3JjoN+EkX8TL3iZmE0XEwghd+yAR329/9vV3raTOzmNWFOkxb4a1sHdADqDBR/7sAYw/Gv6I1geRRkcYnqKkdFBDun8Ib+CIOKT8NHzJXC4432PjVmy1Wps/SJPjoIfuK/fnlUe6WOza35jz0gDhJdYlzg4Qw7ClT//brU8OcasKEQvWZLT2p5utsDHRzdOl0yn/8SoIUYMWatHYFAZ9Y9wOcf4mM9Kd93yvhtnnolFyx46KYH6eHJ1mKTRKUZz2wGBHUYNLqAY='
     queue-listener: user_registration_queue
 
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
 
 eureka:
   client:

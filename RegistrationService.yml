@@ -5,12 +5,16 @@ spring:
   application:
     name: RegistrationService
 
-
   rabbitmq:
     host: '{cipher}AQCjdg6NwR/S/RmDt6x3zbxYoV3DdfVB2wvqIoJSIrewFO+6BgFAmQJbfJRPSjOBxHV7Y3UZRmc1J9peMnxoTRSCL8SrwE+6jUfz7f+AkrtycL0TZj8PyhT1Xen4PojnPZwiweGACIsnGNvcZ3yNyEQC334v7qSIjtFSGrYLziJWC94dCPdoe2FyFlPli68ywyDG9UUwijeWVRzlbGxXBYJJTAmikwDqq2m0JjG82Qt7TFxpTasNOWP/FBDWWxxjVquWMPa8qmnO9TUGeYNEMvAn3T4rMnLoUiVZ1s/gw+023xTM4zZ6RMDhqaJqNi+UAVzaAIVghp9s0yS9e8WgxhIGmUA+IWf150r67mtj8pkGW2+siyNn8gjMeYYIB071MNmC6kNCBuMQqnPfrCU1LavEnBPUEtOOUXjCAy05QkL+ajSkuVNFbUv0WTSIXoKNZqs='
     port: 5672
     username: '{cipher}AQBKx0sJKfPqHtwplQyhHdpKQhSON7ENcua4aM2lRdQjgCtw62vn5+YkNA9NYWFGoN4XaqvabhNvUkY7DD5Q0J9hvZ664did1vyRVJBVwE9HrGzJBuURq5Qw3hgs7jcUkPX/kyxMYHfX+Bnj2+5k7ThlfPfpWhKQJbeSmGFhvnI3yf/4PZP2DPj99NJBQ+tfH65MtxW7HxqAx0JWnK7evfXP8BH4BExkPhe4H+hEEos/UR7U6pgLd8cO9BBg9IacMIy4cHNhR3BTh5YJ0mBS2OamOx2Ql5CRBlWFCzHukXjlF2hUSEqd7rlZA9J310kqBcEoxSucjzXEVCG5Y2erNyEeuP2LFoa4Qo/Q+iHPJ4hhCQwoDvmJPCN2+LTWkIFYyJc='
     password: '{cipher}AQA6IJaiuI5FD5hmQbKtcYCvA4+2eaFn95MA5LnHC0EPvlxJCTuK3Rim+k+jfD0lwaJN+17tC2Um929hpGUqw2zvxSMUUQC7y2NiLPS0eW9qKzqaHt0i6DGgsF/dCqHzhysXAn84WK5GKaWT1uwsDlLvJTUA6ErS2EKMux/JpXjQb9EbLVd37BKdkA9tLRGwZaP4iZeM21Xk24KymcJU+nc+mmWhGkWLoTXXhhEyXw6p0eedqHQjsKt2OZvmAbA2skrImXQ2slkIKKeOAvyeycXgMuT7Ww8hn4YvU07v1nW3yPzNtCClN83Hy/gpQDO1MsQyaPcalFZcy+nDPzDvXxMpYe6U9iQV0fnqvAl9P1aIeLJ5A3U7QDhL1+ny7B83ECo='
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
 
 eureka:
   client:
