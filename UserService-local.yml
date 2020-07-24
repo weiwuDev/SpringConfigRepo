@@ -1,0 +1,41 @@
+server:
+  port: 8084
+  
+spring:
+  codec:
+    max-in-memory-size: 10MB
+    
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: "off"
+    
+  data:
+    mongodb:
+      uri: '{cipher}AQCdSxGzZyPWmJM0N7FEKnLe/YcS5RH10i/CKXM9F9KvQEd0ZRgiRDsN4dm4C1ld8875xC5TKkJhOmfh/RHPvgncJk8HNsuwK5HkKqvRKUOQJSaVxxk4UcseVH+Sqadoy9K2u20bbEHiqlaFX3L6T73bWba4CeYTvUkxiMw7+Z2fbvyaSxfAR6JYb41UcwzIibX0oGa9DShp1gQ19xGN98Uoc5tOG4sGVcOrPxp9KEz8ql8CGXm62SGjvKHzsFeffdiUxyWXHGUHGreLQWmGVdR3oAT3JBfzRQdiAmuHyopHOLfQx0bRquq2V8IOBlq1xF9v009Hc8NSGE3rMu7r+osmY2TGsZiG35Jc+h7hOGbMlFGYRKCWVrZv/ocbrxVaooSMbR9f9hm8Knxh3gqxP5/133e/lXXiq9WiMUTz8tdrxYK7ULkSVXagsKaG+gu9xxRD2vRG+zr8Ez3u4AQcjG7a'
+      database: User
+  
+  rabbitmq:
+    host: '{cipher}AQAxBjpxiGEiyXJT5nl1SVhjz68Obi2mUC+Lx7rjWNbjZzP/ZVVdn4m0PEccuUEOpsCTiRw8sT4IFzfQu0M8GYBENn8ROM/zhvlzqyDi8ICLuGZ/vVC6spi29nEK2VrlunFuCVFvE2HgfF5NFjspgWeZaUKqvK+VptOA00/yXRbQVsLi6686mW8a+Au2gFZ0Oasw2lncdB+hZnaZHY/IqNBL9mJEZ7EFK8SNTnc1Kjo9MTxZn2R73tu6pyGofBkq3qikKzoYg1A5fJBdeMGdSoDuA+X8g7/ol64J7w5q0SVNKrpJFFTq4fLGCEYbUty2/velS11okEoF1hXW8bgQaeGUyh5fZvYq/gAEKKQfVJ8QyZpOJvcQznQOyP+TA8V5/fr+CcU3LmuzyrXoDqMKyDGK7Z8P9zXTAgfIuuqUcoNLJd5PAL0XX9d540EMXqC60Xw='
+    port: 5672
+    username: '{cipher}AQAyfk6XYQ12exWHptW8Gcyxn5lado77kk+6U1SmAwpHO/luxcVr2GovW5z48o4Ady22Kl2oOinOTiFRlJNPws1wWWL9yX7ONq2fqB5kZe5z6b8mCKZRxDu03xBHigxVf5q+1lT0tRZqfDJ5NjMri0ZHt6UVuIdM0EffbNpoAzRI/vBf7E3uOX3Ev3zec9QvfGbNNWW4BMotQ+jo9PiX4ReA/G/nXjQD8vyKXOmrqwkI63mOfAxk6vm2sGHbbICMF9refB8XYwxaK7KVgHdjZG29q7Oo6xLR+BgtDVoGVuxRyAtpPlgnHGoymn2iJIFMx7lsReqvfdo+sR/3zYCiGOgKKhOsp9VJn1z0c2Rf2YfOSdeMHbdYnmAgSvOugHoB4wM='
+    password: '{cipher}AQAmHPW8tDqwnRIouvd/56HA7q0fHDveyqpjHZFGsyhHQWrnq1OJgHlisOFCH3va14yiFpRkHltIFjkx91/EHbBmViFYSv5p/8IdpgGgUiXzHo/Ck9or8mpd3JjoN+EkX8TL3iZmE0XEwghd+yAR329/9vV3raTOzmNWFOkxb4a1sHdADqDBR/7sAYw/Gv6I1geRRkcYnqKkdFBDun8Ib+CIOKT8NHzJXC4432PjVmy1Wps/SJPjoIfuK/fnlUe6WOza35jz0gDhJdYlzg4Qw7ClT//brU8OcasKEQvWZLT2p5utsDHRzdOl0yn/8SoIUYMWatHYFAZ9Y9wOcf4mM9Kd93yvhtnnolFyx46KYH6eHJ1mKTRKUZz2wGBHUYNLqAY='
+    queue-listener: user_registration_queue
+
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+
+eureka:
+  client:
+    enabled: false
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone:  "http://eureka:8761/eureka, http://eureka2:8762/eureka"
+
+  instance:
+    hostname: ${HOSTNAME:${spring.application.name}}
+    preferIpAddress: false
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}:${server.port}
