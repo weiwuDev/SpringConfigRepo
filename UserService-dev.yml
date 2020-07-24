@@ -9,9 +9,6 @@ spring:
     allow-bean-definition-overriding: true
     banner-mode: "off"
     
-  application:
-    name: UserService
-    
   data:
     mongodb:
       uri: '{cipher}AQCdSxGzZyPWmJM0N7FEKnLe/YcS5RH10i/CKXM9F9KvQEd0ZRgiRDsN4dm4C1ld8875xC5TKkJhOmfh/RHPvgncJk8HNsuwK5HkKqvRKUOQJSaVxxk4UcseVH+Sqadoy9K2u20bbEHiqlaFX3L6T73bWba4CeYTvUkxiMw7+Z2fbvyaSxfAR6JYb41UcwzIibX0oGa9DShp1gQ19xGN98Uoc5tOG4sGVcOrPxp9KEz8ql8CGXm62SGjvKHzsFeffdiUxyWXHGUHGreLQWmGVdR3oAT3JBfzRQdiAmuHyopHOLfQx0bRquq2V8IOBlq1xF9v009Hc8NSGE3rMu7r+osmY2TGsZiG35Jc+h7hOGbMlFGYRKCWVrZv/ocbrxVaooSMbR9f9hm8Knxh3gqxP5/133e/lXXiq9WiMUTz8tdrxYK7ULkSVXagsKaG+gu9xxRD2vRG+zr8Ez3u4AQcjG7a'
