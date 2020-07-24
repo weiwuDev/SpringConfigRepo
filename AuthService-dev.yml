@@ -47,4 +47,4 @@ eureka:
 
 check:
   response:
-    checkResponse: "testing if this worksssssssssssssss"
+    value: "testing if this worksssssssssssssss"
