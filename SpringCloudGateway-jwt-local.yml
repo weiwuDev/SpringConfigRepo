@@ -43,7 +43,7 @@ spring:
 server:
   port: 8443
   ssl:
-    enabled: true
+    enabled: false
     key-store: classpath:keystore.p12
     key-store-type: pkcs12
     key-alias: '{cipher}AQAdTYi/ynU1A/AIurqx0CPch7jINnMGOzDCG6av0t02AkAwhth7lbAau9NqQtu1IGTf2ri8XYLdDiTbGUfw88xbBDX9G6NkGvZst9rap5EAx+cNUdPyEmk3w1VlboH791A++SyzNuclVxqm+KbcIdOtGkr6JNhsLhxbAz5Lb52uqbl12Djv1HpF1RO5pOCHoNGF+7SFybFZ0IsVhbfBVAjWyDVGV+TwtufjytnU/TSg9Vr3Brs7IEGl7KO5qsW5zSuufJZBsBlmF9fTo5kuoi+Or27FmdwbzPYYIdtpL+oOWD0IbaeQGyXBoFHZrEa7+HjnW+xRYSTC96yfCWMhk4LXsgaFG9cynpdJEZ/WLcxMoHVbJUEFTtkUHnLC/FY3SAg='
