@@ -1,9 +1,9 @@
 server:
-  port: 8098
+  port: 8091
 
 spring:
   application:
-    name: RefreshTokenService
+    name: AuthService
 
   rabbitmq:
     host: '{cipher}AQCjdg6NwR/S/RmDt6x3zbxYoV3DdfVB2wvqIoJSIrewFO+6BgFAmQJbfJRPSjOBxHV7Y3UZRmc1J9peMnxoTRSCL8SrwE+6jUfz7f+AkrtycL0TZj8PyhT1Xen4PojnPZwiweGACIsnGNvcZ3yNyEQC334v7qSIjtFSGrYLziJWC94dCPdoe2FyFlPli68ywyDG9UUwijeWVRzlbGxXBYJJTAmikwDqq2m0JjG82Qt7TFxpTasNOWP/FBDWWxxjVquWMPa8qmnO9TUGeYNEMvAn3T4rMnLoUiVZ1s/gw+023xTM4zZ6RMDhqaJqNi+UAVzaAIVghp9s0yS9e8WgxhIGmUA+IWf150r67mtj8pkGW2+siyNn8gjMeYYIB071MNmC6kNCBuMQqnPfrCU1LavEnBPUEtOOUXjCAy05QkL+ajSkuVNFbUv0WTSIXoKNZqs='
@@ -20,6 +20,7 @@ spring:
   data:
     mongodb:
       uri: '{cipher}AQCrHvDQu7fnttVVof3jibUcpCmJmrrUkku2gEDWNbD2hqn09W5b9VAE6EY0qrddFOYuKG6cX3+3w106T+vdcIcPWWsZMDoYaeXW7530icMNv9X+8KXj2lvZBCbDCehq+KU5nC4RXFI5vxA3IvYh6JbvePAdAuEZ5SNRXizJpJLxXlZqB5cVI/Zvves09epVIfVDZZrqx81/UbH/gvbgRbGQvMqMYv/b/nkP7zbjWE9WBFJYe+zv2UZgVZp4N8ouAAnCGHLuZO+sNWngqMli/DZs/Gxm4Y7JqYMMqR6v9MFG2kj5ubh9WUxagOxt63ktMsToBJy89BERzgOkymQ/yySXo6tsn0SuSMy3+fElptoakbbgQTXk5HbSO8juyjFixXTKNY7KQ6IjV6Mbxal2YL0aewcyVwoybKIOjt15ARfXcFAYBrJUyr/Z22cRnPTUbESaomDW+zYOjB2KKo8Xvmc0cZULwikIUBSUe5PNJFyvPcWGED/TO+soQR7IDmCbMn4='
+      auto-index-creation: true
 
 eureka:
   client:
@@ -27,10 +28,23 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     service-url:
-      defaultZone:  "http://eureka:8761/eureka"
+      defaultZone:  "http://eureka:8761/eureka, http://eureka2:8762/eureka"
 
   instance:
     hostname: ${HOSTNAME:${spring.application.name}}
     preferIpAddress: false
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}:${server.port}
 
+
+springboot-webflux-jwt:
+  jwt:
+    secret: '{cipher}AQApO6g2560p32Zqx0YBhwhWXQZCFMHsx0lRTk3htb5k2aV8CSEO0iCBQohpQBKebWTWOLS/lye2z7hMhPOru3FSrRP0FdNaSI1p2hqGgYYEiY73n3PgYECCPGkt8sGQJNu4wAD/AP2EdatQxeKDIs08A9GclWtZ6sm4aW2+A8ns36/AmFvy5B3GzYoPYPvIsDLGRTTtyNzfywMXdd7x+8IRXBGUWM/5AZUHcaUCjtWOxdqe+c4iBdbcljggPVzDVl72V7WNqtlBFOL/JjDcbklh7sDnv8X78+lPr42Jb/8lBUowrKbECTLuFKlXUJ27BXTyK7ICml0jKz/VSsKPTfFVktDyXFPjg4zbwB1JZF/bQX6Km7faF2Yx5i7bNiNd4anyaHNNSW/r5IPFXk7FesLCpndWLRnFGiC+Pjsm1zwe7oaNAAZy4t8axKtIggjCBwK5wOd1PReoj21J5WIBNzZz0aDPOO58N3HMRwsd1/K6Uw=='
+    expiration: 120
+  refresh_token:
+    expiration: 600
+
+
+
+check:
+  response:
+    value: "testing if this works"

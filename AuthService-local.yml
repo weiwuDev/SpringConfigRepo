@@ -31,6 +31,7 @@ spring:
   data:
     mongodb:
       uri: '{cipher}AQCrHvDQu7fnttVVof3jibUcpCmJmrrUkku2gEDWNbD2hqn09W5b9VAE6EY0qrddFOYuKG6cX3+3w106T+vdcIcPWWsZMDoYaeXW7530icMNv9X+8KXj2lvZBCbDCehq+KU5nC4RXFI5vxA3IvYh6JbvePAdAuEZ5SNRXizJpJLxXlZqB5cVI/Zvves09epVIfVDZZrqx81/UbH/gvbgRbGQvMqMYv/b/nkP7zbjWE9WBFJYe+zv2UZgVZp4N8ouAAnCGHLuZO+sNWngqMli/DZs/Gxm4Y7JqYMMqR6v9MFG2kj5ubh9WUxagOxt63ktMsToBJy89BERzgOkymQ/yySXo6tsn0SuSMy3+fElptoakbbgQTXk5HbSO8juyjFixXTKNY7KQ6IjV6Mbxal2YL0aewcyVwoybKIOjt15ARfXcFAYBrJUyr/Z22cRnPTUbESaomDW+zYOjB2KKo8Xvmc0cZULwikIUBSUe5PNJFyvPcWGED/TO+soQR7IDmCbMn4='
+      auto-index-creation: true
 
 eureka:
   client:
