@@ -39,9 +39,9 @@ eureka:
 springboot-webflux-jwt:
   jwt:
     secret: '{cipher}AQApO6g2560p32Zqx0YBhwhWXQZCFMHsx0lRTk3htb5k2aV8CSEO0iCBQohpQBKebWTWOLS/lye2z7hMhPOru3FSrRP0FdNaSI1p2hqGgYYEiY73n3PgYECCPGkt8sGQJNu4wAD/AP2EdatQxeKDIs08A9GclWtZ6sm4aW2+A8ns36/AmFvy5B3GzYoPYPvIsDLGRTTtyNzfywMXdd7x+8IRXBGUWM/5AZUHcaUCjtWOxdqe+c4iBdbcljggPVzDVl72V7WNqtlBFOL/JjDcbklh7sDnv8X78+lPr42Jb/8lBUowrKbECTLuFKlXUJ27BXTyK7ICml0jKz/VSsKPTfFVktDyXFPjg4zbwB1JZF/bQX6Km7faF2Yx5i7bNiNd4anyaHNNSW/r5IPFXk7FesLCpndWLRnFGiC+Pjsm1zwe7oaNAAZy4t8axKtIggjCBwK5wOd1PReoj21J5WIBNzZz0aDPOO58N3HMRwsd1/K6Uw=='
-    expiration: 120
-  refresh_token:
     expiration: 600
+  refresh_token:
+    expiration: 1200
 
 
 
