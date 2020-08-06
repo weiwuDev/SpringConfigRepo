@@ -48,6 +48,13 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: ProjectService
+          uri: lb://ProjectService
+          predicates:
+            - Path=/ProjectService/**
+          filters:
+            - StripPrefix=1
+
 server:
   port: 8443
   ssl:
