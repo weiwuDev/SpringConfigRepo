@@ -55,6 +55,13 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: RecommendationService
+          uri: lb://RecommendationService
+          predicates:
+            - Path=/RecommendationService/**
+          filters:
+            - StripPrefix=1
+
 server:
   port: 8443
   ssl:
